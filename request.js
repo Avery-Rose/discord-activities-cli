@@ -1,5 +1,5 @@
-const fetch = require('node-fetch');
-const apps = require('./apps.json');
+const fetch = require("node-fetch");
+const apps = require("./apps.json");
 
 /**
  * @param {string} token
@@ -11,10 +11,10 @@ async function req(token, id, activity) {
   const res = await fetch(
     `https://discord.com/api/v10/channels/${id}/invites`,
     {
-      method: 'POST',
+      method: "POST",
       headers: {
         authorization: token,
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
 
       body: JSON.stringify({
@@ -32,11 +32,11 @@ async function req(token, id, activity) {
     const invite = await res.json();
     return `https://discord.com/invite/${invite.code}`;
   } else {
-    process.stdout.write('\x1Bc');
+    process.stdout.write("\x1Bc");
     console.error(
       new Error(`Discord API: ${res.status}. Invalid ChannelID?`.red)
     );
-    return '';
+    return "";
   }
 }
 
