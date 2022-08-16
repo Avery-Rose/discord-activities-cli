@@ -63,7 +63,7 @@ const question = async () => {
       args[1] = 'youtube';
     }
 
-    if (answer == 'exit') {
+    if (answer === 'exit') {
       return exit();
     }
 
