@@ -24,7 +24,7 @@ const rl = readLine.createInterface({
   output: process.stdout,
 });
 
-rl.question('DISCORD TOKEN: ', async (answer) => {
+rl.question('DISCORD TOKEN: ', (answer) => {
   if (answer) {
     token = answer;
     process.stdout.write('\x1Bc'); // clear the screen
@@ -47,7 +47,7 @@ const printActivityTable = () => {
   console.log(table.toString().red);
 };
 
-const question = async () => {
+const question = () => {
   console.log(
     'What channel do you want to create the activity in?:\n'.underline.magenta +
       '(Channel ID) (Activity Type)'.blue
